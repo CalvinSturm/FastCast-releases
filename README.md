@@ -1,11 +1,26 @@
-# FastCast — Releases
+# FastCast Releases
 
-This repository is the **public version feed** for [FastCast](https://github.com/), a beginner-friendly Windows screen recording and streaming app — OBS-level performance without OBS-level setup.
+This repository hosts public FastCast release downloads and the version feed used by the app's manual **Check for Updates** action.
 
-It exists so the app's in-app **Check for Updates** can look up the latest published version. It contains release tags and short changelogs only.
+FastCast is a native Windows screen recorder and live streamer focused on local recording and custom RTMP/RTMPS streaming.
 
-> **Note:** Build downloads are not hosted here during the current beta. This repo is a version feed, not a download mirror.
+## Download
 
-## Latest version
+Go to the **Releases** page and download:
 
-See the [Releases](../../releases) page for the most recent version and its changelog.
+- `FastCast-0.3.1-win-x64.zip`
+- `FastCast-0.3.1-win-x64.zip.sha256`
+
+Extract the ZIP and run `fastcast.exe`.
+
+The Open Beta build is currently unsigned, so Windows SmartScreen may show an "Unknown publisher" warning. Click **More info → Run anyway** if you trust the download source.
+
+## Privacy
+
+FastCast has no telemetry, accounts, crash upload, background polling, or automatic updates.
+
+The in-app **Check for Updates** action only checks this public release feed. It does not download or install updates.
+
+## Source code
+
+FastCast source code is private. This repository is for public release downloads and version metadata only.
