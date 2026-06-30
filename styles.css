@@ -295,11 +295,11 @@ p {
 }
 
 .feature-item {
-  min-height: 112px;
+  min-height: 86px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: rgba(17, 24, 33, 0.7);
-  padding: 18px;
+  padding: 14px 16px;
   color: var(--text);
   font-weight: 700;
   line-height: 1.35;
@@ -312,7 +312,7 @@ p {
 }
 
 .warning {
-  border-color: rgba(255, 118, 113, 0.36);
+  border-color: rgba(214, 184, 116, 0.34);
 }
 
 code {
