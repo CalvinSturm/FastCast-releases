@@ -66,12 +66,11 @@ a {
 }
 
 .brand-mark {
+  display: block;
+  flex: 0 0 auto;
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(104, 167, 255, 0.42);
-  border-radius: 8px;
-  background: #101723;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .nav-links {
