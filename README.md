@@ -8,8 +8,8 @@ FastCast is a native Windows screen recorder and live streamer for local recordi
 
 Download the latest ZIP from the **Releases** page:
 
-- `FastCast-0.3.1-win-x64.zip`
-- `FastCast-0.3.1-win-x64.zip.sha256`
+- `FastCast-0.3.2-win-x64.zip`
+- `FastCast-0.3.2-win-x64.zip.sha256`
 
 Extract the ZIP and run `fastcast.exe`.
 
@@ -27,10 +27,10 @@ Click **More info → Run anyway** if you trust the download source.
 
 The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.3.1-win-x64.zip`:
+Expected SHA-256 for `FastCast-0.3.2-win-x64.zip`:
 
 ```text
-2c56fe389f1c8204610493cee5a4b40209cef3d3dddaaedd9eda617d11a0505f
+fb48f1edc0798753f8a06a2c5aca5ccf39f135b4ba4da38d20e1b7386542a29e
 ```
 
 ## Open Beta status
@@ -58,3 +58,9 @@ If something breaks, click **Save Support Bundle** in FastCast and send the gene
 FastCast source code is private.
 
 This repository is for public release downloads and version metadata only.
+
+## GitHub Pages
+
+This repository includes a static GitHub Pages landing page in `index.html`.
+
+See `docs/GITHUB_PAGES.md` for setup instructions.
