@@ -1,0 +1,5 @@
+# robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://calvinsturm.github.io/FastCast-releases/sitemap.xml
