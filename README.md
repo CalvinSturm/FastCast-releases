@@ -71,10 +71,10 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.3.2](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.3.2)**
+Latest release: **[v0.3.3](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.3.3)** (Open Beta)
 
-- `FastCast-0.3.2-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.3.2-win-x64.zip.sha256` — checksum for verifying the download.
+- `FastCast-0.3.3-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.3.3-win-x64.zip.sha256` — checksum for verifying the download.
 
 ### Requirements
 
@@ -91,16 +91,16 @@ The current Open Beta build is unsigned, so Windows SmartScreen may show an "Unk
 
 The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.3.2-win-x64.zip`:
+Expected SHA-256 for `FastCast-0.3.3-win-x64.zip`:
 
 ```text
-fb48f1edc0798753f8a06a2c5aca5ccf39f135b4ba4da38d20e1b7386542a29e
+3fa131022b93ab8250df74890e8091c12c3de558d1b93f53d2a10a50373eb4c7
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.3.2-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.3.3-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the value above.
@@ -167,7 +167,7 @@ If something breaks, click **Save Support Bundle** in FastCast and send the gene
 
 FastCast source code is private and proprietary.
 
-This repository is for public release downloads and version metadata only. FastCast v0.3.2 ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside the release ZIP.
+This repository is for public release downloads and version metadata only. FastCast v0.3.3 ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside the release ZIP.
 
 ## GitHub Pages
 
