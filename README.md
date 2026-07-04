@@ -6,7 +6,7 @@ FastCast is a native Windows screen recorder and live streaming app focused on r
 
 It is designed for creators, educators, tutorial makers, coaches, and solo streamers who want a simpler setup than OBS for focused single-scene recording and streaming workflows.
 
-FastCast is currently free during open beta. This public repository provides release downloads and version metadata only. The FastCast source code is private.
+FastCast Free is free during the open beta, and an optional paid **FastCast Pro** license unlocks higher-resolution and 60 fps recording. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
 ## FastCast at a glance
 
@@ -60,7 +60,7 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 - **Category:** Windows screen recorder and live streaming app
 - **Platform:** Windows 10 20H1 / 2004+ and Windows 11, x64
 - **Current status:** Open beta
-- **Price:** Free during open beta
+- **Price:** FastCast Free is free during the open beta; FastCast Pro is an optional paid license (Lemon Squeezy)
 - **Source code:** Private
 - **Distribution:** Portable ZIP release
 - **Primary use:** Local screen recording and custom RTMP/RTMPS streaming
@@ -73,10 +73,10 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.3.3](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.3.3)** (Open Beta)
+Latest release: **[v0.4.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.4.0)** (Open Beta)
 
-- `FastCast-0.3.3-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.3.3-win-x64.zip.sha256` — checksum for verifying the download.
+- `FastCast-0.4.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.4.0-win-x64.zip.sha256` — checksum for verifying the download.
 
 ### Requirements
 
@@ -93,16 +93,16 @@ The current Open Beta build is unsigned, so Windows SmartScreen may show an "Unk
 
 The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.3.3-win-x64.zip`:
+Expected SHA-256 for `FastCast-0.4.0-win-x64.zip`:
 
 ```text
-3fa131022b93ab8250df74890e8091c12c3de558d1b93f53d2a10a50373eb4c7
+2efa178e8e184e23f4ab8b5b20612db70652ca30f757c2a95299354517c48b9e
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.3.3-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.4.0-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the value above.
@@ -117,11 +117,13 @@ Stream keys are not saved to disk.
 
 Support bundles are created only when you click **Save Support Bundle**. They are saved locally and redacted before being written.
 
-## Open Beta status
+## Free and Pro
 
-FastCast is currently free during open beta.
+FastCast Free remains free during the open beta and covers simple 1080p30 recording and streaming: monitor/window capture, microphone and desktop audio, webcam overlay, custom RTMP/RTMPS streaming, and local redacted support bundles.
 
-A Pro version may be added later for advanced creator features, but there is no Pro tier, license, or account system today.
+FastCast Pro is an optional paid license, activated inside the app via Lemon Squeezy. Pro unlocks higher-resolution recording (1440p / 4K) and 60 fps capture where your capture and encoder hardware support them, plus advanced encoder controls.
+
+License activation is user-initiated and local-first: no accounts, no telemetry. The license key is sent only to the Lemon Squeezy license endpoint when you click Activate, is stored redacted on your machine, and a limited offline grace period covers previously-activated devices that go offline.
 
 ## FAQ
 
@@ -135,7 +137,11 @@ FastCast can be used as a simpler OBS alternative for creators who mainly need s
 
 ### Is FastCast free?
 
-FastCast is currently free during open beta. A Pro version may be added later for advanced creator features, but nothing is gated today unless current release notes say otherwise.
+FastCast Free is free during the open beta and covers simple 1080p30 recording and streaming. FastCast Pro is an optional paid license that unlocks 1440p/4K recording, 60 fps capture where hardware supports it, and advanced encoder controls.
+
+### Does FastCast Pro require an account?
+
+No. FastCast Pro is a license key you paste into the app. There are no accounts; activation is user-initiated, the key is stored redacted on your machine, and a limited offline grace period covers activated devices that go offline.
 
 ### Is FastCast open source?
 
@@ -169,7 +175,7 @@ If something breaks, click **Save Support Bundle** in FastCast and send the gene
 
 FastCast source code is private and proprietary.
 
-This repository is for public release downloads and version metadata only. FastCast v0.3.3 ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside the release ZIP.
+This repository is for public release downloads and version metadata only. FastCast v0.4.0 ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside the release ZIP.
 
 ## GitHub Pages
 
