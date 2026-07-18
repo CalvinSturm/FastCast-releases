@@ -73,10 +73,10 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.5.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.5.0)** (Open Beta)
+Latest release: **[v0.5.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.5.1)** (Open Beta)
 
-- `FastCast-0.5.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.5.0-win-x64.zip.sha256` — checksum for verifying the download.
+- `FastCast-0.5.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.5.1-win-x64.zip.sha256` — checksum for verifying the download.
 
 ### Requirements
 
@@ -93,25 +93,24 @@ The current Open Beta build is unsigned, so Windows SmartScreen may show an "Unk
 
 The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.5.0-win-x64.zip`:
+Expected SHA-256 for `FastCast-0.5.1-win-x64.zip`:
 
 ```text
-a84fae6c4e2879dfc4ff9684bdae99664a9c9242506f19528fc950a114aa0ad5
+1c890d9de1f8da1ddfc70a654e8d9b08e7fd62b8fc11e8e38d82cb334f2f2c88
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.5.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.5.1-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the value above.
 
-## Command-line recording control (coming in the next release)
+## Command-line recording control (new in v0.5.1)
 
-The next Open Beta release (not yet in the v0.5.0 download) adds command-line
-start/stop control of a running FastCast window — useful for scripts, Stream
-Deck buttons, and schedulers:
+FastCast v0.5.1 adds command-line start/stop control of a running FastCast
+window — useful for scripts, Stream Deck buttons, and schedulers:
 
 ```powershell
 fastcastc --start-record              # start recording
@@ -198,7 +197,7 @@ Yes. FastCast supports custom RTMP/RTMPS streaming.
 
 ### Can I start and stop recording from the command line?
 
-Yes, starting with the next Open Beta release after v0.5.0. `fastcastc --start-record` and `fastcastc --stop-record` control a running FastCast window with script-friendly exit codes, and `--monitor N` picks which display to record. FastCast is never auto-launched and nothing runs in the background. See "Command-line recording control" above.
+Yes, since v0.5.1. `fastcastc --start-record` and `fastcastc --stop-record` control a running FastCast window with script-friendly exit codes, and `--monitor N` picks which display to record. FastCast is never auto-launched and nothing runs in the background. See "Command-line recording control" above.
 
 ### Does FastCast replace OBS?
 
@@ -212,7 +211,7 @@ If something breaks, click **Save Support Bundle** in FastCast and send the gene
 
 FastCast source code is private and proprietary.
 
-This repository is for public release downloads and version metadata only. FastCast v0.5.0 ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside the release ZIP.
+This repository is for public release downloads and version metadata only. FastCast ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside the release ZIP.
 
 ## GitHub Pages
 
