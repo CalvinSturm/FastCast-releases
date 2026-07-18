@@ -107,6 +107,39 @@ Get-FileHash .\FastCast-0.5.0-win-x64.zip -Algorithm SHA256
 
 The printed hash should match the value above.
 
+## Command-line recording control (coming in the next release)
+
+The next Open Beta release (not yet in the v0.5.0 download) adds command-line
+start/stop control of a running FastCast window — useful for scripts, Stream
+Deck buttons, and schedulers:
+
+```powershell
+fastcastc --start-record              # start recording
+fastcastc --start-record --monitor 2  # record display 2 first
+fastcastc --stop-record               # stop the active recording
+```
+
+How it behaves:
+
+- The commands control an **already-running** FastCast window and trigger the
+  same guarded Start/Stop action as the button and the Ctrl+Alt+F9 hotkey, so
+  a recording can never be double-started or stopped when idle. FastCast is
+  never launched automatically: if it is not running, the command says so and
+  exits nonzero.
+- `--monitor N` records display N (the "Display N" entries of the app's
+  Screen list). The choice sticks like a manual selection, replaces any
+  window-capture selection, and an unknown display number is rejected.
+- Exit codes are script-friendly: `0` for success and for harmless no-ops
+  (already recording / nothing to stop), nonzero for failures (FastCast not
+  running, start failed, unknown display). Output is plain text with no log
+  noise.
+- The release ZIP includes `fastcastc.exe` next to `fastcast.exe`. Use
+  `fastcastc` from scripts and shells: it waits for the command and exits
+  with its exit code. `fastcast.exe` accepts the same flags, but as a GUI app
+  the shell does not wait for it.
+- Like everything else in FastCast, this is local-only: no background
+  service, no polling, no network.
+
 ## Privacy
 
 FastCast does not include telemetry, accounts, crash upload, background polling, or automatic updates.
@@ -162,6 +195,10 @@ FastCast targets Windows 10 20H1 / 2004+ and Windows 11 on x64 systems.
 ### Does FastCast support RTMP and RTMPS streaming?
 
 Yes. FastCast supports custom RTMP/RTMPS streaming.
+
+### Can I start and stop recording from the command line?
+
+Yes, starting with the next Open Beta release after v0.5.0. `fastcastc --start-record` and `fastcastc --stop-record` control a running FastCast window with script-friendly exit codes, and `--monitor N` picks which display to record. FastCast is never auto-launched and nothing runs in the background. See "Command-line recording control" above.
 
 ### Does FastCast replace OBS?
 
