@@ -156,7 +156,7 @@ Before publishing any performance or benchmark claim:
 
 ## Screenshot / image recommendations
 
-Current asset: `assets/fastcast-gui-v0.3.2.png` (referenced by the landing page with descriptive
+Current asset: `assets/fastcast-gui-v0.5.1.png` (referenced by the landing page with descriptive
 alt text). When adding more screenshots, prefer descriptive, keyword-aligned filenames and alt text.
 
 Preferred filenames:
