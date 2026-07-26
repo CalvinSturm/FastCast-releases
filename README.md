@@ -1,6 +1,6 @@
 # FastCast - Native Windows Screen Recorder and Live Streaming App
 
-<img alt="Screenshot 2026-07-16 205028" src="https://github.com/user-attachments/assets/e47e92c3-33b2-4d7d-9d16-7d5cc10d9160" />
+<img width="728" height="790" alt="fastcast_default" src="https://github.com/user-attachments/assets/2f5808e7-c872-45f1-b911-e46dffa07f7f" />
 
 FastCast is a native Windows screen recorder and live streaming app focused on reliable local recording, webcam overlay, desktop audio, microphone capture, and custom RTMP/RTMPS streaming.
 
