@@ -73,10 +73,10 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.5.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.5.1)** (Open Beta)
+Latest release: **[v0.6.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.6.0)** (Open Beta)
 
-- `FastCast-0.5.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.5.1-win-x64.zip.sha256` — checksum for verifying the download.
+- `FastCast-0.6.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.6.0-win-x64.zip.sha256` — checksum for verifying the download.
 
 ### Requirements
 
@@ -93,19 +93,33 @@ The current Open Beta build is unsigned, so Windows SmartScreen may show an "Unk
 
 The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.5.1-win-x64.zip`:
+Expected SHA-256 for `FastCast-0.6.0-win-x64.zip`:
 
 ```text
-1c890d9de1f8da1ddfc70a654e8d9b08e7fd62b8fc11e8e38d82cb334f2f2c88
+7d81a9508c2891458313b6ce7e5c2c6dfc39ec2d900876b4598f349f630d6572
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.5.1-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.6.0-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the value above.
+
+## What's new in v0.6.0
+
+FastCast v0.6.0 makes a **compact dashboard the default view**: the controls a recording actually needs on one screen, with the full detailed view one click — or **F2** — away.
+
+- Screen, the app to capture, audio mode, and microphone are all picked from the default view, so switching what is captured no longer means opening Advanced.
+- **Mic and desktop mute** as icons beside the preview, with global hotkeys **Ctrl+Alt+F10** (mic) and **Ctrl+Alt+F11** (desktop).
+- The view says **where a take goes and when it ends** — a "Saves to …" line, and "Stops after N seconds" whenever a fixed Duration is set.
+- **Windows' yellow capture border no longer appears** while FastCast is running, including during a recording. FastCast holds a capture session for the whole time the live preview is up, so that border used to sit on screen from launch and read as "you are being recorded" when nothing was. FastCast still shows its own Recording state and session clock.
+- **Recent recordings reads in plain language** — length and size (`0:40 · 12.6 MB`) instead of internal segment counts and validation state.
+- A **new application icon**, drawn at ten sizes so the taskbar, Explorer, and Alt-Tab each get an exact frame.
+- **FastCast Pro is now sold through Gumroad.** Existing Lemon Squeezy keys keep working and already-activated devices are unaffected — there is nothing to do.
+
+Recording, streaming, encoder, capture, and audio behavior are otherwise unchanged from v0.5.1. Upgrading is just unzipping v0.6.0 and running `fastcast.exe`; settings and licenses live under `%APPDATA%\FastCast` and carry over.
 
 ## Command-line recording control (new in v0.5.1)
 
