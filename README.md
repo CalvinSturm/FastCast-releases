@@ -42,7 +42,6 @@ FastCast is a good fit if you want:
 OBS is still better if you need:
 
 - Multiple scenes and complex scene switching
-- Chroma key
 - Plugin ecosystems
 - Advanced filters
 - Browser sources
@@ -67,16 +66,16 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 - **Main benefits:** Simple setup, local recording, webcam overlay, desktop audio, microphone capture, custom streaming, privacy-conscious design
 - **Privacy:** No telemetry, no accounts, no crash upload, no background polling, no auto-update
 - **Best for:** Creators, tutorial makers, educators, coaches, and solo streamers who want a focused Windows recording/streaming tool
-- **Not designed for:** Full OBS replacement, complex scene production, plugin workflows, chroma key, multistreaming, or platform OAuth
+- **Not designed for:** Full OBS replacement, complex scene production, plugin workflows, multistreaming, or platform OAuth
 
 ## Download FastCast for Windows
 
 Download the latest FastCast Open Beta ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.6.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.6.0)** (Open Beta)
+Latest release: **[v0.6.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.6.1)** (Open Beta)
 
-- `FastCast-0.6.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.6.0-win-x64.zip.sha256` — checksum for verifying the download.
+- `FastCast-0.6.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.6.1-win-x64.zip.sha256` — checksum for verifying the download.
 
 ### Requirements
 
@@ -93,21 +92,43 @@ The current Open Beta build is unsigned, so Windows SmartScreen may show an "Unk
 
 The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.6.0-win-x64.zip`:
+Expected SHA-256 for `FastCast-0.6.1-win-x64.zip`:
 
 ```text
-7d81a9508c2891458313b6ce7e5c2c6dfc39ec2d900876b4598f349f630d6572
+e46ce9743c4afc1debad305e9083a1e60e9d18769d4ebbc990287eef1dbef869
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.6.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.6.1-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the value above.
 
-## What's new in v0.6.0
+## What's new in v0.6.1
+
+FastCast v0.6.1 is a **correctness release**. Segmented recording — the crash-safe path every FastCast recording goes through — was losing video frames and producing files shorter than what was actually captured. Two separate defects in the Stop-time remux, both fixed.
+
+**If you already have FastCast recordings, read this.** Every take made with **v0.6.0 or earlier is short by roughly 1%**, and plays about 1% fast. A two-minute recording is missing about 1.3 seconds of video; a two-hour one about 77 seconds.
+
+The lost frames cannot be pulled back out of a finished MP4. But if a recording left a `.fastcast-parts` folder beside it, that folder still holds the complete take — and that happened to **every recording longer than about 90 seconds**, because the short duration failed FastCast's own validation check and the segments were deliberately kept.
+
+Recoverable takes are listed in **Recent files** as *"Not saved · Recover"*; one click rebuilds them. For a folder the app does not list, use:
+
+```powershell
+fastcast --recover "path\to\your-recording.mp4.fastcast-parts"
+```
+
+Nothing is re-encoded, so there is no quality loss.
+
+- **With the webcam enabled, Stop could fail to complete.** The window stayed responsive but the recording never finalized and no MP4 appeared. Fixed — segment writes are now paced and written in timestamp order, and Windows' sink writer is no longer allowed to block the recording thread. No recording was ever lost to this.
+- **A failed take is no longer presented as a successful one**, and no longer leaks its capture session or audio worker.
+- **Rebuild a lost recording from the window.** A take interrupted by a crash or power loss appears in Recent files as *"Not saved · Recover"*.
+- **Finalize timing in the log**, so Stop-time work is measurable.
+- Refreshed app icon.
+
+### Previously, in v0.6.0
 
 FastCast v0.6.0 makes a **compact dashboard the default view**: the controls a recording actually needs on one screen, with the full detailed view one click — or **F2** — away.
 
@@ -119,7 +140,9 @@ FastCast v0.6.0 makes a **compact dashboard the default view**: the controls a r
 - A **new application icon**, drawn at ten sizes so the taskbar, Explorer, and Alt-Tab each get an exact frame.
 - **FastCast Pro is now sold through Gumroad.** Existing Lemon Squeezy keys keep working and already-activated devices are unaffected — there is nothing to do.
 
-Recording, streaming, encoder, capture, and audio behavior are otherwise unchanged from v0.5.1. Upgrading is just unzipping v0.6.0 and running `fastcast.exe`; settings and licenses live under `%APPDATA%\FastCast` and carry over.
+Recording, streaming, encoder, capture, and audio behavior were otherwise unchanged from v0.5.1.
+
+Upgrading to the current release is just unzipping it and running `fastcast.exe`; settings and licenses live under `%APPDATA%\FastCast` and carry over. Recover any `.fastcast-parts` folders you still have **before** deleting an old install, since the recovery command ships with the app.
 
 ## Command-line recording control (new in v0.5.1)
 
@@ -179,7 +202,7 @@ FastCast is a native Windows screen recorder and live streaming app for local re
 
 ### Is FastCast an OBS alternative?
 
-FastCast can be used as a simpler OBS alternative for creators who mainly need single-scene screen recording, webcam overlay, desktop/mic audio, and custom RTMP/RTMPS streaming. OBS is still better for complex scenes, plugins, chroma key, browser sources, multistreaming, and advanced broadcast workflows.
+FastCast can be used as a simpler OBS alternative for creators who mainly need single-scene screen recording, webcam overlay, desktop/mic audio, and custom RTMP/RTMPS streaming. OBS is still better for complex scenes, plugins, browser sources, multistreaming, and advanced broadcast workflows.
 
 ### Is FastCast free?
 
