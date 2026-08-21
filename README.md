@@ -6,7 +6,7 @@ FastCast is a native Windows screen recorder and live streaming app focused on r
 
 It is designed for creators, educators, tutorial makers, coaches, and solo streamers who want a simpler setup than OBS for focused single-scene recording and streaming workflows.
 
-FastCast Free is free during the open beta, and an optional paid **FastCast Pro** license unlocks higher-resolution and 60 fps recording. This public repository provides release downloads and version metadata only. The FastCast source code is private.
+FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
 ## FastCast at a glance
 
@@ -19,6 +19,7 @@ It is built for:
 - Microphone capture
 - Webcam picture-in-picture overlay
 - Custom RTMP/RTMPS streaming through stream keys
+- Multistreaming to up to three platforms from one capture (Pro)
 - Manual update checks through this public release feed
 - Privacy-conscious creator workflows without telemetry or accounts
 
@@ -45,7 +46,6 @@ OBS is still better if you need:
 - Plugin ecosystems
 - Advanced filters
 - Browser sources
-- Multistreaming
 - Platform OAuth workflows
 - Studio/broadcast production workflows
 - Deep troubleshooting and advanced capture configuration
@@ -59,7 +59,7 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 - **Category:** Windows screen recorder and live streaming app
 - **Platform:** Windows 10 20H1 / 2004+ and Windows 11, x64
 - **Current status:** Open beta
-- **Price:** FastCast Free is free during the open beta; FastCast Pro is an optional paid license (Lemon Squeezy)
+- **Price:** FastCast Free is free during the open beta; FastCast Pro is an optional paid license (Gumroad; keys from the previous Lemon Squeezy store still work)
 - **Source code:** Private
 - **Distribution:** Portable ZIP release
 - **Primary use:** Local screen recording and custom RTMP/RTMPS streaming
@@ -72,10 +72,10 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.6.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.6.1)** (Open Beta)
+Latest release: **[v0.7.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.7.0)** (Open Beta)
 
-- `FastCast-0.6.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.6.1-win-x64.zip.sha256` — checksum for verifying the download.
+- `FastCast-0.7.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.7.0-win-x64.zip.sha256` — checksum for verifying the download.
 
 ### Requirements
 
@@ -92,57 +92,33 @@ The current Open Beta build is unsigned, so Windows SmartScreen may show an "Unk
 
 The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.6.1-win-x64.zip`:
+Expected SHA-256 for `FastCast-0.7.0-win-x64.zip`:
 
 ```text
-e46ce9743c4afc1debad305e9083a1e60e9d18769d4ebbc990287eef1dbef869
+7eb28611347c32691819b7dc7d49f02947a2d2713f1aa22cb8246f9daaf56241
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.6.1-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.7.0-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the value above.
 
-## What's new in v0.6.1
+## What's new in v0.7.0
 
-FastCast v0.6.1 is a **correctness release**. Segmented recording — the crash-safe path every FastCast recording goes through — was losing video frames and producing files shorter than what was actually captured. Two separate defects in the Stop-time remux, both fixed.
+**Stream to three places at once.** One capture is encoded once and published to up to three RTMP destinations at the same time — so a second and third platform cost upload bandwidth, not CPU or GPU. Each destination connects, retries and fails on its own, so one platform dropping out cannot disturb the others or your local recording. Multistreaming is FastCast Pro; Free streams to one destination.
 
-**If you already have FastCast recordings, read this.** Every take made with **v0.6.0 or earlier is short by roughly 1%**, and plays about 1% fast. A two-minute recording is missing about 1.3 seconds of video; a two-hour one about 77 seconds.
+**Destination presets** for YouTube, Twitch, Kick, TikTok, Facebook, LinkedIn and Custom. YouTube and Twitch fill in their ingest server for you; the others issue per-account endpoints, so those rows ask for the Server URL from the platform's own dashboard. A preset is an endpoint, not an official integration.
 
-The lost frames cannot be pulled back out of a finished MP4. But if a recording left a `.fastcast-parts` folder beside it, that folder still holds the complete take — and that happened to **every recording longer than about 90 seconds**, because the short duration failed FastCast's own validation check and the segments were deliberately kept.
+**60 fps recording is now free.** It used to be a Pro feature. The frame-rate cap is now 120 fps, which stays Pro.
 
-Recoverable takes are listed in **Recent files** as *"Not saved · Recover"*; one click rebuilds them. For a folder the app does not list, use:
+**Remember stream keys, if you want to.** Off by default. Turn it on in Advanced and each destination's key is stored in Windows Credential Manager — encrypted under your Windows account, restored next launch, and deleted the moment you turn the toggle back off. Keys are never written to settings, logs, diagnostics or support bundles.
 
-```powershell
-fastcast --recover "path\to\your-recording.mp4.fastcast-parts"
-```
+Plus a cleaner live preview: the webcam box's outline and corner grips now appear only when your pointer is over the preview, instead of sitting over the shot the whole time.
 
-Nothing is re-encoded, so there is no quality loss.
-
-- **With the webcam enabled, Stop could fail to complete.** The window stayed responsive but the recording never finalized and no MP4 appeared. Fixed — segment writes are now paced and written in timestamp order, and Windows' sink writer is no longer allowed to block the recording thread. No recording was ever lost to this.
-- **A failed take is no longer presented as a successful one**, and no longer leaks its capture session or audio worker.
-- **Rebuild a lost recording from the window.** A take interrupted by a crash or power loss appears in Recent files as *"Not saved · Recover"*.
-- **Finalize timing in the log**, so Stop-time work is measurable.
-- Refreshed app icon.
-
-### Previously, in v0.6.0
-
-FastCast v0.6.0 makes a **compact dashboard the default view**: the controls a recording actually needs on one screen, with the full detailed view one click — or **F2** — away.
-
-- Screen, the app to capture, audio mode, and microphone are all picked from the default view, so switching what is captured no longer means opening Advanced.
-- **Mic and desktop mute** as icons beside the preview, with global hotkeys **Ctrl+Alt+F10** (mic) and **Ctrl+Alt+F11** (desktop).
-- The view says **where a take goes and when it ends** — a "Saves to …" line, and "Stops after N seconds" whenever a fixed Duration is set.
-- **Windows' yellow capture border no longer appears** while FastCast is running, including during a recording. FastCast holds a capture session for the whole time the live preview is up, so that border used to sit on screen from launch and read as "you are being recorded" when nothing was. FastCast still shows its own Recording state and session clock.
-- **Recent recordings reads in plain language** — length and size (`0:40 · 12.6 MB`) instead of internal segment counts and validation state.
-- A **new application icon**, drawn at ten sizes so the taskbar, Explorer, and Alt-Tab each get an exact frame.
-- **FastCast Pro is now sold through Gumroad.** Existing Lemon Squeezy keys keep working and already-activated devices are unaffected — there is nothing to do.
-
-Recording, streaming, encoder, capture, and audio behavior were otherwise unchanged from v0.5.1.
-
-Upgrading to the current release is just unzipping it and running `fastcast.exe`; settings and licenses live under `%APPDATA%\FastCast` and carry over. Recover any `.fastcast-parts` folders you still have **before** deleting an old install, since the recovery command ships with the app.
+[Full release notes](docs/RELEASE_NOTES_v0.7.0.md)
 
 ## Command-line recording control (new in v0.5.1)
 
@@ -188,11 +164,11 @@ Support bundles are created only when you click **Save Support Bundle**. They ar
 
 ## Free and Pro
 
-FastCast Free remains free during the open beta and covers simple 1080p30 recording and streaming: monitor/window capture, microphone and desktop audio, webcam overlay, custom RTMP/RTMPS streaming, and local redacted support bundles.
+FastCast Free remains free during the open beta and covers simple 1080p60 recording and streaming: monitor/window capture, microphone and desktop audio, webcam overlay, custom RTMP/RTMPS streaming, and local redacted support bundles.
 
-FastCast Pro is an optional paid license, activated inside the app via Lemon Squeezy. Pro unlocks higher-resolution recording (1440p / 4K) and 60 fps capture where your capture and encoder hardware support them, plus advanced encoder controls.
+FastCast Pro is an optional paid license, activated inside the app. Pro unlocks higher-resolution recording (1440p / 4K), 120 fps capture where your capture and encoder hardware support them, multistreaming to up to three destinations, and advanced encoder controls.
 
-License activation is user-initiated and local-first: no accounts, no telemetry. The license key is sent only to the Lemon Squeezy license endpoint when you click Activate, is stored redacted on your machine, and a limited offline grace period covers previously-activated devices that go offline.
+License activation is user-initiated and local-first: no accounts, no telemetry. The license key is sent only to the license endpoint of the store that issued it when you click Activate, is stored redacted on your machine, and a limited offline grace period covers previously-activated devices that go offline.
 
 ## FAQ
 
@@ -206,7 +182,7 @@ FastCast can be used as a simpler OBS alternative for creators who mainly need s
 
 ### Is FastCast free?
 
-FastCast Free is free during the open beta and covers simple 1080p30 recording and streaming. FastCast Pro is an optional paid license that unlocks 1440p/4K recording, 60 fps capture where hardware supports it, and advanced encoder controls.
+FastCast Free is free during the open beta and covers simple 1080p60 recording and streaming. FastCast Pro is an optional paid license that unlocks 1440p/4K recording, 120 fps capture where hardware supports it, multistreaming to up to three destinations, and advanced encoder controls.
 
 ### Does FastCast Pro require an account?
 
