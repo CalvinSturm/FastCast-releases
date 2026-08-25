@@ -83,6 +83,9 @@ Latest release: **[v0.7.0](https://github.com/CalvinSturm/FastCast-releases/rele
 - `FastCast-0.7.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
 - `FastCast-0.7.0-win-x64.zip.sha256` — portable ZIP checksum.
 
+The published MSI has a maintainer-confirmed manual smoke pass on Windows
+(August 25, 2026).
+
 ### Requirements
 
 - Windows 10 20H1 / 2004+ or Windows 11

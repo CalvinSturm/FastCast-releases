@@ -156,5 +156,8 @@ easiest setup, or the portable ZIP for extract-and-run. The MSI installs under
 your local app data and adds Start-menu and Apps & Features entries; uninstall
 keeps your settings, logs and recordings.
 
+**Installer validation:** PASS — the published MSI has a maintainer-confirmed
+manual smoke pass on Windows (August 25, 2026).
+
 The build is **unsigned**, so SmartScreen shows an "unknown publisher" warning:
 choose **More info → Run anyway**.
