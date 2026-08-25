@@ -151,8 +151,10 @@ Support bundles remain local-only, redacted, and generated only when you ask.
 
 ## Requirements and install
 
-Windows 10 (20H1 or newer) or Windows 11, 64-bit. Portable ZIP — unzip and run,
-no installer, nothing written outside your user profile.
+Windows 10 (20H1 or newer) or Windows 11, 64-bit. Use the per-user MSI for the
+easiest setup, or the portable ZIP for extract-and-run. The MSI installs under
+your local app data and adds Start-menu and Apps & Features entries; uninstall
+keeps your settings, logs and recordings.
 
 The build is **unsigned**, so SmartScreen shows an "unknown publisher" warning:
 choose **More info → Run anyway**.

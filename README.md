@@ -4,7 +4,9 @@ It is designed for creators, educators, tutorial makers, coaches, and solo strea
 
 FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
-**[Download FastCast v0.7.0 for Windows x64 (zip)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.0/FastCast-0.7.0-win-x64.zip)**
+**[Download FastCast v0.7.0 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.0/FastCast-0.7.0-win-x64.msi)**
+
+[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.0/FastCast-0.7.0-win-x64.zip)
 
 <img width="728" height="790" alt="Screenshot 2026-08-17 192037" src="https://github.com/user-attachments/assets/3f3bc4c8-d4ab-4a92-bfe4-11997ad21b35" />
 
@@ -36,7 +38,7 @@ FastCast is a good fit if you want:
 - Local recording with desktop and microphone audio
 - Webcam picture-in-picture overlay
 - Custom RTMP/RTMPS live streaming
-- A portable app with no installer
+- A per-user MSI installer or portable ZIP
 - A privacy-conscious recorder with no telemetry or accounts
 - A focused single-scene workflow instead of a full broadcast studio
 
@@ -63,7 +65,7 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 - **Current status:** Open beta
 - **Price:** FastCast Free is free during the open beta; FastCast Pro is an optional paid license (Gumroad; keys from the previous Lemon Squeezy store still work)
 - **Source code:** Private
-- **Distribution:** Portable ZIP release
+- **Distribution:** Per-user MSI installer and portable ZIP
 - **Primary use:** Local screen recording and custom RTMP/RTMPS streaming
 - **Main benefits:** Simple setup, local recording, webcam overlay, desktop audio, microphone capture, custom streaming, privacy-conscious design
 - **Privacy:** No telemetry, no accounts, no crash upload, no background polling, no auto-update
@@ -72,12 +74,14 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 ## Download FastCast for Windows
 
-Download the latest FastCast Open Beta ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
+Download the latest FastCast Open Beta MSI or portable ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
 Latest release: **[v0.7.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.7.0)** (Open Beta)
 
+- `FastCast-0.7.0-win-x64.msi` — recommended per-user installer; no administrator prompt.
+- `FastCast-0.7.0-win-x64.msi.sha256` — MSI checksum.
 - `FastCast-0.7.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.7.0-win-x64.zip.sha256` — checksum for verifying the download.
+- `FastCast-0.7.0-win-x64.zip.sha256` — portable ZIP checksum.
 
 ### Requirements
 
@@ -92,21 +96,23 @@ The current Open Beta build is unsigned, so Windows SmartScreen may show an "Unk
 
 ### Verify the download
 
-The release includes a `.sha256` file so you can verify the ZIP was not corrupted or modified.
+Each release package includes a `.sha256` sidecar so you can verify it was not corrupted or modified.
 
-Expected SHA-256 for `FastCast-0.7.0-win-x64.zip`:
+Expected SHA-256 values:
 
 ```text
-7eb28611347c32691819b7dc7d49f02947a2d2713f1aa22cb8246f9daaf56241
+MSI: 2d461d4f8e0c03b600f42f4a45f6bdf0d9d28156d9cb203ff29cc66a4a6c889e
+ZIP: 7eb28611347c32691819b7dc7d49f02947a2d2713f1aa22cb8246f9daaf56241
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.7.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.7.0-win-x64.msi -Algorithm SHA256
+# or: Get-FileHash .\FastCast-0.7.0-win-x64.zip -Algorithm SHA256
 ```
 
-The printed hash should match the value above.
+The printed hash should match the corresponding value above.
 
 ## What's new in v0.7.0
 
@@ -226,7 +232,7 @@ If something breaks, click **Save Support Bundle** in FastCast and send the gene
 
 FastCast source code is private and proprietary.
 
-This repository is for public release downloads and version metadata only. FastCast ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside the release ZIP.
+This repository is for public release downloads and version metadata only. FastCast ships a proprietary `LICENSE.txt` and a `THIRD_PARTY_NOTICES.txt` inside both release packages.
 
 ## GitHub Pages
 
