@@ -142,7 +142,7 @@ Support bundles remain local-only, redacted, and generated only when you ask.
 
 ## Known limitations
 
-- Only YouTube has recorded live evidence among the seven presets.
+- Only YouTube, Twitch, and Kick have recorded live evidence among the seven presets.
 - Upload bandwidth is not measured, and FastCast will not warn you before three
   destinations exceed your connection.
 - The encoded payload is copied once per destination rather than shared.
