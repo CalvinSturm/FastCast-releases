@@ -4,9 +4,9 @@ It is designed for creators, educators, tutorial makers, coaches, and solo strea
 
 FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
-**[Download FastCast v0.7.0 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.0/FastCast-0.7.0-win-x64.msi)**
+**[Download FastCast v0.7.1 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.1/FastCast-0.7.1-win-x64.msi)**
 
-[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.0/FastCast-0.7.0-win-x64.zip)
+[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.1/FastCast-0.7.1-win-x64.zip)
 
 <img width="728" height="790" alt="Screenshot 2026-08-17 192037" src="https://github.com/user-attachments/assets/3f3bc4c8-d4ab-4a92-bfe4-11997ad21b35" />
 
@@ -76,15 +76,15 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta MSI or portable ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.7.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.7.0)** (Open Beta)
+Latest release: **[v0.7.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.7.1)** (Open Beta)
 
-- `FastCast-0.7.0-win-x64.msi` — recommended per-user installer; no administrator prompt.
-- `FastCast-0.7.0-win-x64.msi.sha256` — MSI checksum.
-- `FastCast-0.7.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.7.0-win-x64.zip.sha256` — portable ZIP checksum.
+- `FastCast-0.7.1-win-x64.msi` — recommended per-user installer; no administrator prompt.
+- `FastCast-0.7.1-win-x64.msi.sha256` — MSI checksum.
+- `FastCast-0.7.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.7.1-win-x64.zip.sha256` — portable ZIP checksum.
 
-The published MSI has a maintainer-confirmed manual smoke pass on Windows
-(August 25, 2026).
+The published packages have a maintainer-confirmed manual smoke pass on Windows
+(v0.7.1, August 28, 2026).
 
 ### Requirements
 
@@ -104,32 +104,32 @@ Each release package includes a `.sha256` sidecar so you can verify it was not c
 Expected SHA-256 values:
 
 ```text
-MSI: 2d461d4f8e0c03b600f42f4a45f6bdf0d9d28156d9cb203ff29cc66a4a6c889e
-ZIP: 7eb28611347c32691819b7dc7d49f02947a2d2713f1aa22cb8246f9daaf56241
+MSI: 8e1d44847871f7a48710c27da3cc89124d30ec28f68c7a41d06b3738a354d775
+ZIP: b5f7ec0dddb7c495a4e921786737e72a7dd5a7a7555d2b627c595ac513b75f8e
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.7.0-win-x64.msi -Algorithm SHA256
-# or: Get-FileHash .\FastCast-0.7.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.7.1-win-x64.msi -Algorithm SHA256
+# or: Get-FileHash .\FastCast-0.7.1-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the corresponding value above.
 
-## What's new in v0.7.0
+## What's new in v0.7.1
 
-**Stream to three places at once.** One capture is encoded once and published to up to three RTMP destinations at the same time — so a second and third platform cost upload bandwidth, not CPU or GPU. Each destination connects, retries and fails on its own, so one platform dropping out cannot disturb the others or your local recording. Multistreaming is FastCast Pro; Free streams to one destination.
+**Stop is instant now.** However long you recorded, pressing Stop hands the app straight back to you. The file finishes writing on its own row in Recent files while you get on with the next take. Recordings are stitched together as they run rather than remuxed in one go at the end, so Stop no longer grows with the length of the take — 36 seconds of content went from 436 ms to 29 ms on the development machine, and it no longer scales with recording length at all.
 
-**Destination presets** for YouTube, Twitch, Kick, TikTok, Facebook, LinkedIn and Custom. YouTube and Twitch fill in their ingest server for you; the others issue per-account endpoints, so those rows ask for the Server URL from the platform's own dashboard. A preset is an endpoint, not an official integration.
+**The app returns to idle while a take is still saving.** Stop used to freeze the whole window until the file was written and validated. Now the moment your screen, microphone and camera are released, the window comes back and the take finishes on its own Recent files row.
 
-**60 fps recording is now free.** It used to be a Pro feature. The frame-rate cap is now 120 fps, which stays Pro.
+**Fixed: a finished recording could get stuck showing "Saving…".** The file was complete and playable, but the Recent card was never repainted.
 
-**Remember stream keys, if you want to.** Off by default. Turn it on in Advanced and each destination's key is stored in Windows Credential Manager — encrypted under your Windows account, restored next launch, and deleted the moment you turn the toggle back off. Keys are never written to settings, logs, diagnostics or support bundles.
+**Fixed: apps and displays opened after FastCast started never appeared in Sources.** The lists were built once at startup and only the Refresh button rebuilt them — which the simple view does not show, so restarting was the only way to pick up a newly opened app. Every Sources picker now re-scans as you open it, and connecting or disconnecting a monitor updates the Screen list on its own.
 
-Plus a cleaner live preview: the webcam box's outline and corner grips now appear only when your pointer is over the preview, instead of sitting over the shot the whole time.
+Nothing about capture, encoding, audio or streaming changed: v0.7.1 records exactly what v0.7.0 recorded.
 
-[Full release notes](docs/RELEASE_NOTES_v0.7.0.md)
+[Full release notes](docs/RELEASE_NOTES_v0.7.1.md)
 
 ## Command-line recording control (new in v0.5.1)
 
