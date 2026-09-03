@@ -4,12 +4,11 @@ It is designed for creators, educators, tutorial makers, coaches, and solo strea
 
 FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
-**[Download FastCast v0.7.1 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.1/FastCast-0.7.1-win-x64.msi)**
+**[Download FastCast v0.8.0 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.8.0/FastCast-0.8.0-win-x64.msi)**
 
-[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.7.1/FastCast-0.7.1-win-x64.zip)
+[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.8.0/FastCast-0.8.0-win-x64.zip)
 
-<img width="728" height="790" alt="Screenshot 2026-08-17 192037" src="https://github.com/user-attachments/assets/3f3bc4c8-d4ab-4a92-bfe4-11997ad21b35" />
-
+<img width="730" height="792" alt="1" src="https://github.com/user-attachments/assets/adf5595c-836a-4b3a-8020-6f13479e8926" />
 
 
 ## FastCast at a glance
