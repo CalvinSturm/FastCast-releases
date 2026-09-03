@@ -1,4 +1,6 @@
-# FastCast - Native Windows Screen Recorder and Live Streaming App
+# <img width="36" alt="ChatGPT Image Aug 26, 2026, 07_32_37 PM" src="https://github.com/user-attachments/assets/6cbec981-2b77-4532-ae89-0c27382270d7" /> FastCast
+
+Native Windows Screen Recorder and Live Streaming App
 
 It is designed for creators, educators, tutorial makers, coaches, and solo streamers who want a simpler setup than OBS for focused single-scene recording and streaming workflows.
 
