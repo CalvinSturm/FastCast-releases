@@ -77,15 +77,15 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta MSI or portable ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.7.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.7.1)** (Open Beta)
+Latest release: **[v0.8.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.8.0)** (Open Beta)
 
-- `FastCast-0.7.1-win-x64.msi` — recommended per-user installer; no administrator prompt.
-- `FastCast-0.7.1-win-x64.msi.sha256` — MSI checksum.
-- `FastCast-0.7.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.7.1-win-x64.zip.sha256` — portable ZIP checksum.
+- `FastCast-0.8.0-win-x64.msi` — recommended per-user installer; no administrator prompt.
+- `FastCast-0.8.0-win-x64.msi.sha256` — MSI checksum.
+- `FastCast-0.8.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.8.0-win-x64.zip.sha256` — portable ZIP checksum.
 
 The published packages have a maintainer-confirmed manual smoke pass on Windows
-(v0.7.1, August 28, 2026).
+(v0.8.0, September 3, 2026).
 
 ### Requirements
 
@@ -105,32 +105,34 @@ Each release package includes a `.sha256` sidecar so you can verify it was not c
 Expected SHA-256 values:
 
 ```text
-MSI: 8e1d44847871f7a48710c27da3cc89124d30ec28f68c7a41d06b3738a354d775
-ZIP: b5f7ec0dddb7c495a4e921786737e72a7dd5a7a7555d2b627c595ac513b75f8e
+MSI: ea511959c695d1565e94a5b687644652c2707fb68a8e1827c7ad739f218305e4
+ZIP: b03291c8e820b192a229b1f7874ef5c55ed7e7ede05128c87da080eb1f8648a6
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.7.1-win-x64.msi -Algorithm SHA256
-# or: Get-FileHash .\FastCast-0.7.1-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.8.0-win-x64.msi -Algorithm SHA256
+# or: Get-FileHash .\FastCast-0.8.0-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the corresponding value above.
 
-## What's new in v0.7.1
+## What's new in v0.8.0
 
-**Stop is instant now.** However long you recorded, pressing Stop hands the app straight back to you. The file finishes writing on its own row in Recent files while you get on with the next take. Recordings are stitched together as they run rather than remuxed in one go at the end, so Stop no longer grows with the length of the take — 36 seconds of content went from 436 ms to 29 ms on the development machine, and it no longer scales with recording length at all.
+**Instant Replay.** FastCast can keep the last 15 to 300 seconds of your screen in memory and save it as an MP4 after the fact. Press **Ctrl+Alt+F8** and the clip is on disk. Nothing was written until you asked, nothing is re-encoded, and the buffer keeps running. Clips land in Recent files like any other take.
 
-**The app returns to idle while a take is still saving.** Stop used to freeze the whole window until the file was written and validated. Now the moment your screen, microphone and camera are released, the window comes back and the take finishes on its own Recent files row.
+**FastCast in the notification area.** Arm Replay, save a clip, or reopen the window with no FastCast on screen. **Start with Windows** is optional.
 
-**Fixed: a finished recording could get stuck showing "Saving…".** The file was complete and playable, but the Recent card was never repainted.
+**A rebuilt control surface.** One button system across the app, clearer Replay / Webcam / Crop controls, and real click targets in Recent files.
 
-**Fixed: apps and displays opened after FastCast started never appeared in Sources.** The lists were built once at startup and only the Refresh button rebuilt them — which the simple view does not show, so restarting was the only way to pick up a newly opened app. Every Sources picker now re-scans as you open it, and connecting or disconnecting a monitor updates the Screen list on its own.
+**A Pro license no longer sees an upgrade pitch.** It shows a Pro badge instead.
 
-Nothing about capture, encoding, audio or streaming changed: v0.7.1 records exactly what v0.7.0 recorded.
+**The mouse pointer now shows in the preview**, with a **Show cursor** toggle.
 
-[Full release notes](docs/RELEASE_NOTES_v0.7.1.md)
+**Fixed:** replay clips that opened on silence, and a startup entry left behind after uninstalling.
+
+[Full release notes](docs/RELEASE_NOTES_v0.8.0.md)
 
 ## Command-line recording control (new in v0.5.1)
 
