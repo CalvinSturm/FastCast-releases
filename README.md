@@ -64,7 +64,7 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 - **Category:** Windows screen recorder and live streaming app
 - **Platform:** Windows 10 20H1 / 2004+ and Windows 11, x64
 - **Current status:** Open beta
-- **Price:** FastCast Free is free during the open beta; FastCast Pro is an optional paid license (Gumroad; keys from the previous Lemon Squeezy store still work)
+- **Price:** FastCast Free is free during the open beta; FastCast Pro is pay what you want, $0 or more (Gumroad; keys from the previous Lemon Squeezy store still work)
 - **Source code:** Private
 - **Distribution:** Per-user MSI installer and portable ZIP
 - **Primary use:** Local screen recording and custom RTMP/RTMPS streaming
@@ -178,7 +178,7 @@ Support bundles are created only when you click **Save Support Bundle**. They ar
 
 FastCast Free remains free during the open beta and covers simple 1080p60 recording and streaming: monitor/window capture, microphone and desktop audio, webcam overlay, custom RTMP/RTMPS streaming, and local redacted support bundles.
 
-FastCast Pro is an optional paid license, activated inside the app. Pro unlocks higher-resolution recording (1440p / 4K), 120 fps capture where your capture and encoder hardware support them, multistreaming to up to three destinations, and advanced encoder controls.
+FastCast Pro is pay what you want: enter $0 at checkout for a free license key, or pay any amount you like to support development. It is activated inside the app. Pro unlocks higher-resolution recording (1440p / 4K), 120 fps capture where your capture and encoder hardware support them, multistreaming to up to three destinations, and advanced encoder controls.
 
 License activation is user-initiated and local-first: no accounts, no telemetry. The license key is sent only to the license endpoint of the store that issued it when you click Activate, is stored redacted on your machine, and a limited offline grace period covers previously-activated devices that go offline.
 
@@ -194,7 +194,7 @@ FastCast can be used as a simpler OBS alternative for creators who mainly need s
 
 ### Is FastCast free?
 
-FastCast Free is free during the open beta and covers simple 1080p60 recording and streaming. FastCast Pro is an optional paid license that unlocks 1440p/4K recording, 120 fps capture where hardware supports it, multistreaming to up to three destinations, and advanced encoder controls.
+FastCast Free is free during the open beta and covers simple 1080p60 recording and streaming. FastCast Pro is pay what you want: enter $0 at checkout for a free license key, or pay any amount you like to support development. Pro unlocks 1440p/4K recording, 120 fps capture where hardware supports it, multistreaming to up to three destinations, and advanced encoder controls.
 
 ### Does FastCast Pro require an account?
 
