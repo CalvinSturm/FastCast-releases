@@ -6,9 +6,9 @@ It is designed for creators, educators, tutorial makers, coaches, and solo strea
 
 FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
-**[Download FastCast v0.8.0 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.8.0/FastCast-0.8.0-win-x64.msi)**
+**[Download FastCast v0.9.0 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.0/FastCast-0.9.0-win-x64.msi)**
 
-[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.8.0/FastCast-0.8.0-win-x64.zip)
+[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.0/FastCast-0.9.0-win-x64.zip)
 
 <img width="730" height="792" alt="1" src="https://github.com/user-attachments/assets/adf5595c-836a-4b3a-8020-6f13479e8926" />
 
@@ -64,7 +64,7 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 - **Category:** Windows screen recorder and live streaming app
 - **Platform:** Windows 10 20H1 / 2004+ and Windows 11, x64
 - **Current status:** Open beta
-- **Price:** FastCast Free is free during the open beta; FastCast Pro is pay what you want, $0 or more (Gumroad; keys from the previous Lemon Squeezy store still work)
+- **Price:** FastCast Free is free during the open beta; FastCast Pro is pay what you think it's worth, from $1 ($29 suggested)
 - **Source code:** Private
 - **Distribution:** Per-user MSI installer and portable ZIP
 - **Primary use:** Local screen recording and custom RTMP/RTMPS streaming
@@ -77,15 +77,15 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta MSI or portable ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.8.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.8.0)** (Open Beta)
+Latest release: **[v0.9.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.9.0)** (Open Beta)
 
-- `FastCast-0.8.0-win-x64.msi` — recommended per-user installer; no administrator prompt.
-- `FastCast-0.8.0-win-x64.msi.sha256` — MSI checksum.
-- `FastCast-0.8.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.8.0-win-x64.zip.sha256` — portable ZIP checksum.
+- `FastCast-0.9.0-win-x64.msi` — recommended per-user installer; no administrator prompt.
+- `FastCast-0.9.0-win-x64.msi.sha256` — MSI checksum.
+- `FastCast-0.9.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.9.0-win-x64.zip.sha256` — portable ZIP checksum.
 
 The published packages have a maintainer-confirmed manual smoke pass on Windows
-(v0.8.0, September 3, 2026).
+(v0.9.0, September 10, 2026).
 
 ### Requirements
 
@@ -105,34 +105,40 @@ Each release package includes a `.sha256` sidecar so you can verify it was not c
 Expected SHA-256 values:
 
 ```text
-MSI: ea511959c695d1565e94a5b687644652c2707fb68a8e1827c7ad739f218305e4
-ZIP: b03291c8e820b192a229b1f7874ef5c55ed7e7ede05128c87da080eb1f8648a6
+MSI: 10e304e86fe2e904c3700e88209bd8a0e0c04887c52639e560064a6d37135f36
+ZIP: 1d0db04c3db8cc1c3ae519aa6876f9339e9c1e31b1d4a5651f5a5c985c39d169
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.8.0-win-x64.msi -Algorithm SHA256
-# or: Get-FileHash .\FastCast-0.8.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.9.0-win-x64.msi -Algorithm SHA256
+# or: Get-FileHash .\FastCast-0.9.0-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the corresponding value above.
 
-## What's new in v0.8.0
+## What's new in v0.9.0
 
-**Instant Replay.** FastCast can keep the last 15 to 300 seconds of your screen in memory and save it as an MP4 after the fact. Press **Ctrl+Alt+F8** and the clip is on disk. Nothing was written until you asked, nothing is re-encoded, and the buffer keeps running. Clips land in Recent files like any other take.
+**Destination names.** A destination row on YouTube or Twitch can now carry a name — "Main channel", "Gaming channel" — so two rows with different stream keys are tellable apart at a glance.
 
-**FastCast in the notification area.** Arm Replay, save a clip, or reopen the window with no FastCast on screen. **Start with Windows** is optional.
+**Get key ↗.** Each destination row links to the platform's own stream-key page (YouTube, Twitch, Kick, Facebook); copy there, paste back.
 
-**A rebuilt control surface.** One button system across the app, clearer Replay / Webcam / Crop controls, and real click targets in Recent files.
+**Custom Instant Replay lengths (Pro).** Any window from 15 seconds to 5 minutes. Instant Replay itself stays free, including all four of its original lengths.
 
-**A Pro license no longer sees an upgrade pitch.** It shows a Pro badge instead.
+**Founding Supporter Sale.** Pro is now pay what you think it's worth, from **$1**, $29 suggested.
 
-**The mouse pointer now shows in the preview**, with a **Show cursor** toggle.
+**Cleaner interface.** Simpler destination setup, clearer licensing controls, more room for device names, and less duplicate UI.
 
-**Fixed:** replay clips that opened on silence, and a startup entry left behind after uninstalling.
+[Full release notes](docs/RELEASE_NOTES_v0.9.0.md)
 
-[Full release notes](docs/RELEASE_NOTES_v0.8.0.md)
+## What was new in v0.8.0
+
+**Instant Replay.** FastCast can keep the last 15 to 300 seconds of your screen in memory and save it as an MP4 after the fact. Press **Ctrl+Alt+F8** and the clip is on disk.
+
+**FastCast in the notification area.** Arm Replay, save a clip, or reopen the window with no FastCast on screen.
+
+[Full v0.8.0 release notes](docs/RELEASE_NOTES_v0.8.0.md)
 
 ## Command-line recording control (new in v0.5.1)
 
