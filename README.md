@@ -6,9 +6,9 @@ It is designed for creators, educators, tutorial makers, coaches, and solo strea
 
 FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
-**[Download FastCast v0.9.0 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.0/FastCast-0.9.0-win-x64.msi)**
+**[Download FastCast v0.9.1 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.1/FastCast-0.9.1-win-x64.msi)**
 
-[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.0/FastCast-0.9.0-win-x64.zip)
+[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.1/FastCast-0.9.1-win-x64.zip)
 
 <img width="730" height="792" alt="1" src="https://github.com/user-attachments/assets/adf5595c-836a-4b3a-8020-6f13479e8926" />
 
@@ -77,15 +77,16 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta MSI or portable ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.9.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.9.0)** (Open Beta)
+Latest release: **[v0.9.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.9.1)** (Open Beta)
 
-- `FastCast-0.9.0-win-x64.msi` — recommended per-user installer; no administrator prompt.
-- `FastCast-0.9.0-win-x64.msi.sha256` — MSI checksum.
-- `FastCast-0.9.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.9.0-win-x64.zip.sha256` — portable ZIP checksum.
+- `FastCast-0.9.1-win-x64.msi` — recommended per-user installer; no administrator prompt.
+- `FastCast-0.9.1-win-x64.msi.sha256` — MSI checksum.
+- `FastCast-0.9.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.9.1-win-x64.zip.sha256` — portable ZIP checksum.
 
-The published packages have a maintainer-confirmed manual smoke pass on Windows
-(v0.9.0, September 10, 2026).
+The v0.9.1 MSI has been verified to install over v0.9.0, launch, and exit cleanly
+on Windows (September 12, 2026). The v0.9.0 packages have a maintainer-confirmed
+manual smoke pass (September 10, 2026).
 
 ### Requirements
 
@@ -105,20 +106,28 @@ Each release package includes a `.sha256` sidecar so you can verify it was not c
 Expected SHA-256 values:
 
 ```text
-MSI: 10e304e86fe2e904c3700e88209bd8a0e0c04887c52639e560064a6d37135f36
-ZIP: 1d0db04c3db8cc1c3ae519aa6876f9339e9c1e31b1d4a5651f5a5c985c39d169
+MSI: f63a49e66f9fa626fe60847cb12f23e5c7fc66cb164b23bbd53650c80043e90b
+ZIP: 6a609cd8e44e817df3fac424a04ce8d9761a79736746fa834adb95106d751840
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.9.0-win-x64.msi -Algorithm SHA256
-# or: Get-FileHash .\FastCast-0.9.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.9.1-win-x64.msi -Algorithm SHA256
+# or: Get-FileHash .\FastCast-0.9.1-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the corresponding value above.
 
-## What's new in v0.9.0
+## What's new in v0.9.1
+
+**Hotfix: Go Live works again.** In v0.9.0, **Go live** from a destination row stopped with "add a Stream URL" even when the row showed Ready. Destination rows (YouTube, Twitch, Kick and the rest) go live again.
+
+**Clearer Stream card.** The stream key, name and server URL boxes now show what goes in them, with a tip on hover.
+
+[Full release notes](docs/RELEASE_NOTES_v0.9.1.md)
+
+## What was new in v0.9.0
 
 **Destination names.** A destination row on YouTube or Twitch can now carry a name — "Main channel", "Gaming channel" — so two rows with different stream keys are tellable apart at a glance.
 
