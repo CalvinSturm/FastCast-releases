@@ -6,9 +6,9 @@ It is designed for creators, educators, tutorial makers, coaches, and solo strea
 
 FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
-**[Download FastCast v0.9.1 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.1/FastCast-0.9.1-win-x64.msi)**
+**[Download FastCast v0.9.2 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.2/FastCast-0.9.2-win-x64.msi)**
 
-[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.1/FastCast-0.9.1-win-x64.zip)
+[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.2/FastCast-0.9.2-win-x64.zip)
 
 <img width="730" height="792" alt="1" src="https://github.com/user-attachments/assets/adf5595c-836a-4b3a-8020-6f13479e8926" />
 
@@ -64,7 +64,7 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 - **Category:** Windows screen recorder and live streaming app
 - **Platform:** Windows 10 20H1 / 2004+ and Windows 11, x64
 - **Current status:** Open beta
-- **Price:** FastCast Free is free during the open beta; FastCast Pro is pay what you think it's worth, from $1 ($29 suggested)
+- **Price:** FastCast Free is free during the open beta; FastCast Pro is $19 until v1.0, then $29
 - **Source code:** Private
 - **Distribution:** Per-user MSI installer and portable ZIP
 - **Primary use:** Local screen recording and custom RTMP/RTMPS streaming
@@ -77,16 +77,17 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta MSI or portable ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.9.1](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.9.1)** (Open Beta)
+Latest release: **[v0.9.2](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.9.2)** (Open Beta)
 
-- `FastCast-0.9.1-win-x64.msi` — recommended per-user installer; no administrator prompt.
-- `FastCast-0.9.1-win-x64.msi.sha256` — MSI checksum.
-- `FastCast-0.9.1-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.9.1-win-x64.zip.sha256` — portable ZIP checksum.
+- `FastCast-0.9.2-win-x64.msi` — recommended per-user installer; no administrator prompt.
+- `FastCast-0.9.2-win-x64.msi.sha256` — MSI checksum.
+- `FastCast-0.9.2-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.9.2-win-x64.zip.sha256` — portable ZIP checksum.
 
-The v0.9.1 MSI has been verified to install over v0.9.0, launch, and exit cleanly
-on Windows (September 12, 2026). The v0.9.0 packages have a maintainer-confirmed
-manual smoke pass (September 10, 2026).
+The v0.9.2 MSI has been verified to install over v0.9.1, launch, record a
+35-second take that plays back cleanly, and exit on Windows (September 24, 2026).
+The v0.9.0 packages have a maintainer-confirmed manual smoke pass
+(September 10, 2026).
 
 ### Requirements
 
@@ -106,20 +107,30 @@ Each release package includes a `.sha256` sidecar so you can verify it was not c
 Expected SHA-256 values:
 
 ```text
-MSI: f63a49e66f9fa626fe60847cb12f23e5c7fc66cb164b23bbd53650c80043e90b
-ZIP: 6a609cd8e44e817df3fac424a04ce8d9761a79736746fa834adb95106d751840
+MSI: f00c4577c121cbe4c37c4c14733b846130fe7fe4008be28c8bd7746d2b894e1e
+ZIP: d060166c3a9eff92e62d5544d15e547c04f5b29b7b272108ed4fbc51d07b8a2d
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.9.1-win-x64.msi -Algorithm SHA256
-# or: Get-FileHash .\FastCast-0.9.1-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.9.2-win-x64.msi -Algorithm SHA256
+# or: Get-FileHash .\FastCast-0.9.2-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the corresponding value above.
 
-## What's new in v0.9.1
+## What's new in v0.9.2
+
+**Hotfix: long recordings save again.** In v0.9.1, a recording longer than about an hour could sit on **Saving…** for hours, and closing FastCast then left an MP4 that would not play. Saving after Stop now finishes in seconds.
+
+**Recovery.** A recording that did not save can be rebuilt from its `.fastcast-parts` folder: select it under **Recent recordings**.
+
+**Pro price.** FastCast Pro is $19 until v1.0, then $29. The app now shows this price.
+
+[Full release notes](docs/RELEASE_NOTES_v0.9.2.md)
+
+## What was new in v0.9.1
 
 **Hotfix: Go Live works again.** In v0.9.0, **Go live** from a destination row stopped with "add a Stream URL" even when the row showed Ready. Destination rows (YouTube, Twitch, Kick and the rest) go live again.
 
@@ -195,7 +206,7 @@ Support bundles are created only when you click **Save Support Bundle**. They ar
 
 FastCast Free remains free during the open beta and covers simple 1080p60 recording and streaming: monitor/window capture, microphone and desktop audio, webcam overlay, custom RTMP/RTMPS streaming, and local redacted support bundles.
 
-FastCast Pro is pay what you want: enter $0 at checkout for a free license key, or pay any amount you like to support development. It is activated inside the app. Pro unlocks higher-resolution recording (1440p / 4K), 120 fps capture where your capture and encoder hardware support them, multistreaming to up to three destinations, and advanced encoder controls.
+FastCast Pro is $19 until the v1.0 launch, when the price rises to $29. It is activated inside the app. Pro unlocks higher-resolution recording (1440p / 4K), 120 fps capture where your capture and encoder hardware support them, multistreaming to up to three destinations, and advanced encoder controls.
 
 License activation is user-initiated and local-first: no accounts, no telemetry. The license key is sent only to the license endpoint of the store that issued it when you click Activate, is stored redacted on your machine, and a limited offline grace period covers previously-activated devices that go offline.
 
@@ -211,7 +222,7 @@ FastCast can be used as a simpler OBS alternative for creators who mainly need s
 
 ### Is FastCast free?
 
-FastCast Free is free during the open beta and covers simple 1080p60 recording and streaming. FastCast Pro is pay what you want: enter $0 at checkout for a free license key, or pay any amount you like to support development. Pro unlocks 1440p/4K recording, 120 fps capture where hardware supports it, multistreaming to up to three destinations, and advanced encoder controls.
+FastCast Free is free during the open beta and covers simple 1080p60 recording and streaming. FastCast Pro is $19 until the v1.0 launch, then $29. Pro unlocks 1440p/4K recording, 120 fps capture where hardware supports it, multistreaming to up to three destinations, and advanced encoder controls.
 
 ### Does FastCast Pro require an account?
 
