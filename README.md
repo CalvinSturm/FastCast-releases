@@ -6,9 +6,9 @@ It is designed for creators, educators, tutorial makers, coaches, and solo strea
 
 FastCast Free is free during the open beta and records at 1080p60. An optional paid **FastCast Pro** license unlocks 1440p/4K recording, 120 fps, and multistreaming to up to three platforms at once. This public repository provides release downloads and version metadata only. The FastCast source code is private.
 
-**[Download FastCast v0.9.2 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.2/FastCast-0.9.2-win-x64.msi)**
+**[Download FastCast v0.10.0 for Windows x64 (MSI installer)](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.10.0/FastCast-0.10.0-win-x64.msi)**
 
-[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.9.2/FastCast-0.9.2-win-x64.zip)
+[Portable ZIP](https://github.com/CalvinSturm/FastCast-releases/releases/download/v0.10.0/FastCast-0.10.0-win-x64.zip)
 
 <img width="730" height="792" alt="1" src="https://github.com/user-attachments/assets/adf5595c-836a-4b3a-8020-6f13479e8926" />
 
@@ -77,15 +77,16 @@ FastCast is for users who want a simpler local recording and custom RTMP/RTMPS s
 
 Download the latest FastCast Open Beta MSI or portable ZIP from the **[Releases](https://github.com/CalvinSturm/FastCast-releases/releases)** page.
 
-Latest release: **[v0.9.2](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.9.2)** (Open Beta)
+Latest release: **[v0.10.0](https://github.com/CalvinSturm/FastCast-releases/releases/tag/v0.10.0)** (Open Beta)
 
-- `FastCast-0.9.2-win-x64.msi` — recommended per-user installer; no administrator prompt.
-- `FastCast-0.9.2-win-x64.msi.sha256` — MSI checksum.
-- `FastCast-0.9.2-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
-- `FastCast-0.9.2-win-x64.zip.sha256` — portable ZIP checksum.
+- `FastCast-0.10.0-win-x64.msi` — recommended per-user installer; no administrator prompt.
+- `FastCast-0.10.0-win-x64.msi.sha256` — MSI checksum.
+- `FastCast-0.10.0-win-x64.zip` — portable build. Extract and run `fastcast.exe`.
+- `FastCast-0.10.0-win-x64.zip.sha256` — portable ZIP checksum.
 
-The v0.9.2 MSI has been verified to install over v0.9.1, launch, record a
-35-second take that plays back cleanly, and exit on Windows (September 24, 2026).
+The v0.10.0 packages were verified by the maintainer on Windows (October 29,
+2026): launch, a recording with microphone and desktop audio that plays back
+cleanly, mic noise reduction, and OBS Virtual Camera as a webcam.
 The v0.9.0 packages have a maintainer-confirmed manual smoke pass
 (September 10, 2026).
 
@@ -107,20 +108,36 @@ Each release package includes a `.sha256` sidecar so you can verify it was not c
 Expected SHA-256 values:
 
 ```text
-MSI: f00c4577c121cbe4c37c4c14733b846130fe7fe4008be28c8bd7746d2b894e1e
-ZIP: d060166c3a9eff92e62d5544d15e547c04f5b29b7b272108ed4fbc51d07b8a2d
+MSI: 0b25d656bbd2d37c5a0c8f7433822f7144623e5f62237f1a93a0286e60647c4d
+ZIP: 7091ae729c33b02a3efa48c18525a8786e41934c917454ae129220e65c90683e
 ```
 
 Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\FastCast-0.9.2-win-x64.msi -Algorithm SHA256
-# or: Get-FileHash .\FastCast-0.9.2-win-x64.zip -Algorithm SHA256
+Get-FileHash .\FastCast-0.10.0-win-x64.msi -Algorithm SHA256
+# or: Get-FileHash .\FastCast-0.10.0-win-x64.zip -Algorithm SHA256
 ```
 
 The printed hash should match the corresponding value above.
 
-## What's new in v0.9.2
+## What's new in v0.10.0
+
+**Security fixes.** A stream key pasted into a server URL is no longer saved to disk, and keys are masked in error messages and the log. If you ever pasted a key into a URL, consider resetting that stream key on the platform.
+
+**A background behind your camera.** Put an image, a solid colour or a looping video behind your keyed webcam. No full-screen monitor needed.
+
+**Reduce background noise.** One click on the Mic row removes fan, hum and keyboard noise from your microphone. It runs on your PC, and it is free for everyone.
+
+**OBS Virtual Camera as a webcam.** Use OBS, or a face-blur or effects tool built on its virtual camera, as your FastCast camera.
+
+**Custom destination limits.** Set the bitrate and keyframe interval a server asks for.
+
+**Fixes.** A blocked microphone no longer loses the recording, and Stop no longer hangs on a stalled destination.
+
+[Full release notes](docs/RELEASE_NOTES_v0.10.0.md)
+
+## What was new in v0.9.2
 
 **Hotfix: long recordings save again.** In v0.9.1, a recording longer than about an hour could sit on **Saving…** for hours, and closing FastCast then left an MP4 that would not play. Saving after Stop now finishes in seconds.
 
